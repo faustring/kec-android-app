@@ -20,6 +20,8 @@ import android.view.MenuItem
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.ViewFlipper
+import kotlinx.android.synthetic.main.fragment_main.view.*
 
 class MenuTab : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -92,7 +94,13 @@ class MenuTab : AppCompatActivity(), NavigationView.OnNavigationItemSelectedList
                                   savedInstanceState: Bundle?): View? {
             val rootView = inflater!!.inflate(R.layout.fragment_main, container, false)
             val textView = rootView.findViewById(R.id.section_label) as TextView
+            val imgView = rootView.findViewById(R.id.viewFlipper) as ViewFlipper
             textView.text = getString(R.string.section_format, arguments.getInt(ARG_SECTION_NUMBER))
+
+            when (arguments.getInt(ARG_SECTION_NUMBER)){
+                0 -> imgView.img1
+            }
+
             return rootView
         }
 
@@ -112,19 +120,24 @@ class MenuTab : AppCompatActivity(), NavigationView.OnNavigationItemSelectedList
     inner class SectionsPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
         override fun getItem(position: Int): Fragment {
+
             return PlaceholderFragment.newInstance(position + 1)
         }
 
         override fun getCount(): Int {
 
-            return 3
+            return 7
         }
 
         override fun getPageTitle(position: Int): CharSequence? {
             when (position) {
-                0 -> return "SECTION1"
-                1 -> return "SECTION2"
-                2 -> return "SECTION3"
+                0 -> return "뮤직"
+                1 -> return "비디오"
+                2 -> return "MY"
+                3 -> return "For U"
+                4 -> return "스타"
+                5 -> return "피드"
+                6 -> return "콘서트"
             }
             return null
         }
@@ -152,4 +165,5 @@ class MenuTab : AppCompatActivity(), NavigationView.OnNavigationItemSelectedList
         drawer.closeDrawer(GravityCompat.START)
         return true
     }
+
 }
