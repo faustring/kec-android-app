@@ -21,7 +21,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.ViewFlipper
-import kotlinx.android.synthetic.main.fragment_main.view.*
 
 class MenuTab : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -92,16 +91,19 @@ class MenuTab : AppCompatActivity(), NavigationView.OnNavigationItemSelectedList
 
         override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                                   savedInstanceState: Bundle?): View? {
-            val rootView = inflater!!.inflate(R.layout.fragment_main, container, false)
-            val textView = rootView.findViewById(R.id.section_label) as TextView
-            val imgView = rootView.findViewById(R.id.viewFlipper) as ViewFlipper
-            textView.text = getString(R.string.section_format, arguments.getInt(ARG_SECTION_NUMBER))
+//            val rootView = inflater!!.inflate(R.layout.fragment_main, container, false)
+//            val textView = rootView.findViewById(R.id.section_label) as TextView
+//            val imgView = rootView.findViewById(R.id.viewFlipper) as ViewFlipper
+//            textView.text = getString(R.string.section_format, arguments.getInt(ARG_SECTION_NUMBER))
 
-            when (arguments.getInt(ARG_SECTION_NUMBER)){
-                0 -> imgView.img1
+            when(arguments.getInt(ARG_SECTION_NUMBER)) {
+                1 -> return inflater!!.inflate(R.layout.fragment_main, container, false)
+                2 -> return inflater!!.inflate(R.layout.layout_tab_0, container, false)
+                3 -> return inflater!!.inflate(R.layout.layout_tab_1, container, false)
+
             }
 
-            return rootView
+            return null
         }
 
         companion object {
@@ -165,5 +167,7 @@ class MenuTab : AppCompatActivity(), NavigationView.OnNavigationItemSelectedList
         drawer.closeDrawer(GravityCompat.START)
         return true
     }
+
+
 
 }
