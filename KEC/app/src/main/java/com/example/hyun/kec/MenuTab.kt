@@ -1,5 +1,6 @@
 package com.example.hyun.kec
 
+import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
 import android.support.design.widget.TabLayout
 import android.support.design.widget.FloatingActionButton
@@ -19,6 +20,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.ViewFlipper
 
@@ -56,7 +58,21 @@ class MenuTab : AppCompatActivity(), NavigationView.OnNavigationItemSelectedList
 
         val navigationView = findViewById(R.id.nav_view) as NavigationView
         navigationView.setNavigationItemSelectedListener(this)
+
+//        //scroll View code
+//        val scrollView = findViewById(R.id.viewScroll)
+//        val img1 = findViewById(R.id.img1)
+//
+//        val res = getResources()
+//        val bitmapDrawable = res.getDrawable(R.drawable.img1)
+//        val bitmapWidth = bitmapDrawable.intrinsicWidth
+//        val bitmapHeight = bitmapDrawable.intrinsicHeight
+        
+
+
     }
+
+
 
     override fun onBackPressed() {
         val drawer = findViewById(R.id.drawer_layout) as DrawerLayout
