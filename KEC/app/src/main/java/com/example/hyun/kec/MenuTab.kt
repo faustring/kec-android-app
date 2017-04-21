@@ -20,15 +20,15 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.ViewFlipper
+import android.widget.*
+
 
 class MenuTab : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private var mSectionsPagerAdapter: SectionsPagerAdapter? = null
 
     private var mViewPager: ViewPager? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,15 +59,9 @@ class MenuTab : AppCompatActivity(), NavigationView.OnNavigationItemSelectedList
         val navigationView = findViewById(R.id.nav_view) as NavigationView
         navigationView.setNavigationItemSelectedListener(this)
 
-//        //scroll View code
-//        val scrollView = findViewById(R.id.viewScroll)
-//        val img1 = findViewById(R.id.img1)
-//
-//        val res = getResources()
-//        val bitmapDrawable = res.getDrawable(R.drawable.img1)
-//        val bitmapWidth = bitmapDrawable.intrinsicWidth
-//        val bitmapHeight = bitmapDrawable.intrinsicHeight
-        
+
+
+
 
 
     }
@@ -103,7 +97,7 @@ class MenuTab : AppCompatActivity(), NavigationView.OnNavigationItemSelectedList
         return super.onOptionsItemSelected(item)
     }
 
-    class PlaceholderFragment : Fragment() {
+    class PlaceholderFragment: Fragment() {
 
         override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                                   savedInstanceState: Bundle?): View? {
@@ -113,7 +107,7 @@ class MenuTab : AppCompatActivity(), NavigationView.OnNavigationItemSelectedList
 //            textView.text = getString(R.string.section_format, arguments.getInt(ARG_SECTION_NUMBER))
 
             when(arguments.getInt(ARG_SECTION_NUMBER)) {
-                1 -> return inflater!!.inflate(R.layout.fragment_main, container, false)
+                1 -> return inflater!!.inflate(R.layout.layout_main_tab, container, false)
                 2 -> return inflater!!.inflate(R.layout.layout_tab_0, container, false)
                 3 -> return inflater!!.inflate(R.layout.layout_tab_1, container, false)
 
@@ -183,6 +177,8 @@ class MenuTab : AppCompatActivity(), NavigationView.OnNavigationItemSelectedList
         drawer.closeDrawer(GravityCompat.START)
         return true
     }
+
+
 
 
 
