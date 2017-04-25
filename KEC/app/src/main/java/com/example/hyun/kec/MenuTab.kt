@@ -1,6 +1,8 @@
 package com.example.hyun.kec
 
+import android.content.Context
 import android.graphics.drawable.BitmapDrawable
+import android.media.Image
 import android.os.Bundle
 import android.support.design.widget.TabLayout
 import android.support.design.widget.FloatingActionButton
@@ -15,12 +17,18 @@ import android.support.v4.view.GravityCompat
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.view.menu.ListMenuItemView
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.*
+import android.widget.AdapterView
+import com.example.hyun.kec.R.id.listView
+import com.example.hyun.kec.R.id.text
+import com.example.hyun.kec.R.layout.activity_menu_tab
+import com.example.hyun.kec.mainListView
 
 
 class MenuTab : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -29,10 +37,13 @@ class MenuTab : AppCompatActivity(), NavigationView.OnNavigationItemSelectedList
 
     private var mViewPager: ViewPager? = null
 
+    private var mListView: ListView? = null
+    private var mAdapter: ArrayAdapter<String>? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_menu_tab)
+        setContentView(activity_menu_tab)
         val toolbar = findViewById(R.id.toolbar) as Toolbar
         setSupportActionBar(toolbar)
 
@@ -59,10 +70,7 @@ class MenuTab : AppCompatActivity(), NavigationView.OnNavigationItemSelectedList
         val navigationView = findViewById(R.id.nav_view) as NavigationView
         navigationView.setNavigationItemSelectedListener(this)
 
-
-
-
-
+        //ListView
 
     }
 
@@ -177,6 +185,7 @@ class MenuTab : AppCompatActivity(), NavigationView.OnNavigationItemSelectedList
         drawer.closeDrawer(GravityCompat.START)
         return true
     }
+
 
 
 
